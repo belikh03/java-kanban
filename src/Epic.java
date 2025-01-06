@@ -39,8 +39,13 @@ public class Epic extends Task {
         return true;
     }
 
-    public void addSubtaskToEpicList(Subtask subtask) {
+    public void addSubtaskToEpicSubtaskList(Subtask subtask) {
         subtaskList.add(subtask);
+        checkStatus();
+    }
+
+    public void removeSubtaskFromEpicSubtaskList(Subtask subtask){
+        subtaskList.remove(subtask);
         checkStatus();
     }
 

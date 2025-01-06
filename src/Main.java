@@ -13,8 +13,8 @@ public class Main {
         taskManager.createNewEpic(epic1);
         taskManager.createNewEpic(epic2);
 
-        Subtask subtask1_1 = new Subtask(Status.NEW, "Подзадача №1", taskManager.getIdCounter(), "Подзадача большой задачи №1", epic1);
-        Subtask subtask1_2 = new Subtask(Status.IN_PROGRESS, "Подзадача №2", taskManager.getIdCounter(), "Подзадача большой задачи №1", epic1);
+        Subtask subtask1_1 = new Subtask(Status.IN_PROGRESS, "Подзадача №1", taskManager.getIdCounter(), "Подзадача большой задачи №1", epic1);
+        Subtask subtask1_2 = new Subtask(Status.NEW, "Подзадача №2", taskManager.getIdCounter(), "Подзадача большой задачи №1", epic1);
         Subtask subtask2_1 = new Subtask(Status.NEW, "Подзадача №3", taskManager.getIdCounter(), "Подзадача большой задачи №2", epic2);
         taskManager.createNewSubtask(subtask1_1);
         taskManager.createNewSubtask(subtask1_2);
@@ -22,6 +22,7 @@ public class Main {
 
         System.out.println(taskManager.getAllEpics());
         System.out.println(taskManager.getAllTasks());
+        System.out.println(taskManager.getAllSubtasks());
         System.out.println(epic1.status);
         System.out.println(epic2.status);
         System.out.println(epic1.getSubtaskList());
@@ -31,5 +32,8 @@ public class Main {
         taskManager.removeEpic(epicId);
         System.out.println(taskManager.getAllEpics());
         System.out.println(taskManager.getAllTasks());
+        int subtask = subtask1_1.getId();
+        taskManager.removeSubtask(subtask);
+        System.out.println(epic1.status);
     }
 }
