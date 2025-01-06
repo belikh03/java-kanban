@@ -1,3 +1,5 @@
+import tasks.*;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -23,8 +25,8 @@ public class Main {
         System.out.println(taskManager.getAllEpics());
         System.out.println(taskManager.getAllTasks());
         System.out.println(taskManager.getAllSubtasks());
-        System.out.println(epic1.status);
-        System.out.println(epic2.status);
+        System.out.println(epic1.getStatus());
+        System.out.println(epic2.getStatus());
         System.out.println(epic1.getSubtaskList());
         System.out.println(epic2.getSubtaskList());
 
