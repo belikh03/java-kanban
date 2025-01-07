@@ -3,15 +3,15 @@ package tasks;
 import java.util.Objects;
 
 public class Task {
-    private final String name;
-    private String description;
-    private final int id;
-    Status status;
+    protected String name;
+    protected String description;
+    protected int id;
+    protected Status status;
 
-    public Task(Status status, String name, int id, String description) {
+    public Task(Status status, String name, String description) {
         this.status = status;
         this.name = name;
-        this.id = id;
+        id = -1;
         this.description = description;
     }
 
@@ -27,8 +27,16 @@ public class Task {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Status getStatus() {
@@ -43,7 +51,7 @@ public class Task {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
-        return id == task.id || (Objects.equals(name, task.name) && Objects.equals(description, task.description));
+        return id == task.id && Objects.equals(name, task.name) && Objects.equals(description, task.description);
     }
 
     @Override

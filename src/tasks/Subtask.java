@@ -1,16 +1,15 @@
 package tasks;
 
 public class Subtask extends Task {
-    private final Epic currentEpic;
+    private final int epicId;
 
 
-    public Subtask(Status status, String name, int id, String description, Epic currentEpic) {
-        super(status, name, id, description);
-        this.currentEpic = currentEpic;
-        currentEpic.addSubtaskToEpicSubtaskList(this);
+    public Subtask(Status status, String name, String description, int epicId) {
+        super(status, name, description);
+        this.epicId = epicId;
     }
 
-    public Epic getCurrentEpic() {
-        return currentEpic;
+    public int getEpicId() {
+        return epicId;
     }
 }
