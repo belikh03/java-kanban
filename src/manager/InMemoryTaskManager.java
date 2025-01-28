@@ -6,12 +6,13 @@ import tasks.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class InMemoryTaskManager implements TaskManager {
     private int idCounter;
-    private final HashMap<Integer, Task> tasks;
-    private final HashMap<Integer, Epic> epics;
-    private final HashMap<Integer, Subtask> subtasks;
+    private final Map<Integer, Task> tasks;
+    private final Map<Integer, Epic> epics;
+    private final Map<Integer, Subtask> subtasks;
     private HistoryManager historyManager = Manager.getDefaultHistory();
 
     public InMemoryTaskManager() {
@@ -22,8 +23,8 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public ArrayList<Task> getAllTasks() {
-        ArrayList<Task> allTasks = new ArrayList<>();
+    public List<Task> getAllTasks() {
+        List<Task> allTasks = new ArrayList<>();
         for (Task task : tasks.values()) {
             allTasks.add(task);
         }
@@ -31,8 +32,8 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public ArrayList<Epic> getAllEpics() {
-        ArrayList<Epic> allEpics = new ArrayList<>();
+    public List<Epic> getAllEpics() {
+        List<Epic> allEpics = new ArrayList<>();
         for (Epic epic : epics.values()) {
             allEpics.add(epic);
         }
@@ -40,8 +41,8 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public ArrayList<Subtask> getAllSubtasks() {
-        ArrayList<Subtask> allSubtasks = new ArrayList<>();
+    public List<Subtask> getAllSubtasks() {
+        List<Subtask> allSubtasks = new ArrayList<>();
         for (Subtask subtask : subtasks.values()) {
             allSubtasks.add(subtask);
         }
@@ -179,7 +180,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public ArrayList<Subtask> getEpicSubtasks(Epic epic) {
+    public List<Subtask> getEpicSubtasks(Epic epic) {
         if (epics.containsValue(epic)) {
             return epic.getSubtaskList();
         } else {
